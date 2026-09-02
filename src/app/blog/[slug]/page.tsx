@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SiteFooter from "../../../components/SiteFooter";
+import SiteHeader from "../../../components/SiteHeader";
 import { posts } from "../posts";
 
 type BlogPostPageProps = {
@@ -18,14 +20,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="site-shell inner-page">
-      <header className="site-header">
-        <Link className="wordmark" href="/">Mara Chen<span>.</span></Link>
-        <nav aria-label="Primary navigation">
-          <Link className="nav-link" href="/">Home</Link>
-          <Link className="nav-link active" href="/blog">Blog</Link>
-          <Link className="nav-link" href="/contact">Contact</Link>
-        </nav>
-      </header>
+      <SiteHeader activePage="blog" />
       <article className="article-page">
         <Link className="back-link" href="/blog">← Back to journal</Link>
         <header className="article-heading">
@@ -37,7 +32,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {post.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
       </article>
-      <footer className="site-footer"><span>© 2026 Mara Chen</span><span>Made with curiosity</span></footer>
+      <SiteFooter />
     </main>
   );
 }

@@ -1,17 +1,12 @@
 import Link from "next/link";
+import SiteFooter from "../../components/SiteFooter";
+import SiteHeader from "../../components/SiteHeader";
 import { posts } from "./posts";
 
 export default function Blog() {
   return (
     <main className="site-shell inner-page">
-      <header className="site-header">
-        <Link className="wordmark" href="/">Mara Chen<span>.</span></Link>
-        <nav aria-label="Primary navigation">
-          <Link className="nav-link" href="/">Home</Link>
-          <Link className="nav-link active" href="/blog">Blog</Link>
-          <Link className="nav-link" href="/contact">Contact</Link>
-        </nav>
-      </header>
+      <SiteHeader activePage="blog" />
       <section className="page-heading blog-heading">
         <p className="eyebrow">The journal</p>
         <h1>Small notes,<br /><em>big feelings.</em></h1>
@@ -26,7 +21,7 @@ export default function Blog() {
           </Link>
         ))}
       </section>
-      <footer className="site-footer"><span>© 2026 Mara Chen</span><span>Made with curiosity</span></footer>
+      <SiteFooter />
     </main>
   );
 }

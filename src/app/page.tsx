@@ -1,4 +1,6 @@
 import Link from "next/link";
+import SiteFooter from "../components/SiteFooter";
+import SiteHeader from "../components/SiteHeader";
 
 const notes = [
   { label: "Selected work", value: "12 projects" },
@@ -9,14 +11,7 @@ const notes = [
 export default function Home() {
   return (
     <main className="site-shell">
-      <header className="site-header">
-        <Link className="wordmark" href="/">Mara Chen<span>.</span></Link>
-        <nav aria-label="Primary navigation">
-          <Link className="nav-link active" href="/">Home</Link>
-          <Link className="nav-link" href="/blog">Blog</Link>
-          <Link className="nav-link" href="/contact">Contact</Link>
-        </nav>
-      </header>
+      <SiteHeader activePage="home" />
       <section className="hero-grid" aria-labelledby="intro-heading">
         <div className="hero-copy">
           <p className="eyebrow">Independent designer &amp; writer</p>
@@ -41,7 +36,7 @@ export default function Home() {
       <section className="notes-grid" aria-label="Profile details">
         {notes.map((note) => <div className="note" key={note.label}><span>{note.label}</span><strong>{note.value}</strong></div>)}
       </section>
-      <footer className="site-footer"><span>© 2026 Mara Chen</span><span>Made with curiosity</span></footer>
+      <SiteFooter />
     </main>
   );
 }
